@@ -44,5 +44,27 @@ $blockName: '.newsComponent';
     &__titleCaption {
         font-size: 8pt;
         color: $darkGray;
+        span {
+            margin: 0 2px;
+        }
+    }
+
+    &__host {
+        color: $darkGray;
+        a {
+            text-decoration: none;
+            color: $darkGray;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__hideButton {
+        cursor: pointer;
+    }
+
+    &__author, &__hideButton {
+        color: black;
     }
 }

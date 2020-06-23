@@ -7,8 +7,9 @@ import './News.scss';
 
 const blockName = 'newsComponent';
 
-const News = ({ newsData, index, onUpVote }) => {
+const News = ({ newsData, index, onUpVote, onHide }) => {
     const [points, setPoints] = useState(Number(newsData.points));
+    const [isHidden, setIsHidden] = useState(newsData.isHidden);
 
     const host = useMemo(() => {
         const parsedUrl = /^((http[s]?|ftp):\/)?\/?([^:\/\s]+)((\/\W*\w+)*\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?$/.exec(newsData.url);
@@ -20,6 +21,14 @@ const News = ({ newsData, index, onUpVote }) => {
         onUpVote(newsData);
     }
 
+    const onHideClick = () => {
+        setIsHidden(true);
+        onHide(newsData);
+    };
+    
+    if (isHidden) {
+        return null;
+    }
 
     return (
         <tr className={classNames(blockName, {[`${blockName}--odd`]: index%2} )}>
@@ -46,20 +55,23 @@ const News = ({ newsData, index, onUpVote }) => {
                         </a>
                     </div>
                     <div className={`${blockName}__titleCaption`}>
-                        <span className={`${blockName}__host`}>
-                            ({host})
-                        </span>
-                        <span className={`${blockName}__author`}>
+                        {
+                            host && (<span className={`${blockName}__host`}>
+                                        (<a href={host}>{host}</a>)
+                                </span>)
+                        }
+                        
+                        <span className={`${blockName}__authorWrapper`}>
                             <span>by</span>
-                            <span>
+                            <span className={`${blockName}__author`}>
                                 {newsData.author}
                             </span>
                         </span>
                         <span className={`${blockName}__time`}>
                             <Moment fromNow ago>{newsData.created_at}</Moment> ago
                         </span>
-                        <span className={`${blockName}__hideButton`}>
-                            [hide]                            
+                        <span className={`${blockName}__hideButton`} onClick={onHideClick}>
+                            [ hide ]                            
                         </span>
                     </div>
                     
