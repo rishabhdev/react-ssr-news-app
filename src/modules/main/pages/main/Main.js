@@ -27,16 +27,18 @@ const Main = ({ location }) => {
          });
          return transformed;
      };
+
     const page = Number(new URLSearchParams(location.search).get('page')) || 1;
     const key = `news-page-${page}`;
     const serverRenderedPage = useServerData(data => {
-        return (data.query && Number(data.query.page));
+        return (data.query && Number(data.query.page) || 1);
     });
 
     const serverNews = useServerData(data => {
         return data[`news-page-${serverRenderedPage}`];
     });
 
+    console.log(serverNews);
     const memoized = useMemo(() => {
         return serverNews;
     }, []);
@@ -126,6 +128,7 @@ Main.fetchData = (query) => {
     } else {
         page = 1;
     }
+
     return api.news.getPage(page).then(news => {
       return {
         [`news-page-${page}`]: news.hits
