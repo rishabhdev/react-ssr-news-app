@@ -1,0 +1,41 @@
+@import '../../../../styles';
+
+$blockName:'.mainPage';
+
+#{$blockName} {
+    &__newsTable {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    &__header {
+        background-color: $secondaryColor;
+        color: white;
+        th {
+            padding-right: 10px;
+        }
+    }
+    &__detailsHeader {
+        text-align: left;
+    }
+
+    &__footerActions {
+        display: flex;
+        color: $secondaryColor;
+        justify-content: flex-end;
+        font-weight: bold;
+        a {
+            margin: 0 5px;
+            color: $secondaryColor;
+            text-decoration: none;
+        }
+        margin: 20px 0;
+    }
+
+    &__chartWrapper {
+        padding: 20px 0 10px 0;
+        border-top: 2px solid $secondaryColor;
+        border-bottom: 2px solid $secondaryColor;
+
+    }
+}

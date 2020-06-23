@@ -1,0 +1,48 @@
+@import '../../../../styles/';
+
+$blockName: '.newsComponent';
+
+#{$blockName} {
+    &__rowContent {
+        padding: 5px 0;
+    }
+    
+    &--odd {
+        background-color: $lightGray;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    &__upVote {
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 8px solid $upVoteGray;
+        cursor: pointer;
+        display: inline-block;
+    }
+
+    &__rowContent {
+        text-align: center;
+        a {
+            text-decoration: none;
+        }
+    }
+    
+    &__title  &__rowContent{
+        text-align: center;
+        display: flex;
+    }
+    &__titleMain {
+        a {
+            color: black;
+        }
+    }
+    &__titleCaption {
+        font-size: 8pt;
+        color: $darkGray;
+    }
+}
