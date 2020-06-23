@@ -5,6 +5,9 @@
 
 - `npm install`
 
+## Checkout Demo Here
+- http://165.22.218.166:3000/
+
 ## Development
 
 - `npm start`
@@ -17,3 +20,7 @@
 - `npm run build && npm run start:prod`
   - Bundle the JS and fire up the Express server for production
 
+## Directories
+- src/ contains all the frontend code
+- server contains logic to run an express server, compile the first page and serve the client
+- test are co-located with components and pages __tests__ directory
