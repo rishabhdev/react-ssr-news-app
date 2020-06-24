@@ -25,7 +25,7 @@ const Main = ({ location }) => {
              }
              return item;
          });
-         return transformed;
+         return transformed.filter((item) => !item.isHidden)
      };
 
     const page = Number(new URLSearchParams(location.search).get('page')) || 1;
@@ -38,7 +38,6 @@ const Main = ({ location }) => {
         return data[`news-page-${serverRenderedPage}`];
     });
 
-    console.log(serverNews);
     const memoized = useMemo(() => {
         return serverNews;
     }, []);
