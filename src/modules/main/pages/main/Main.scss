@@ -3,6 +3,12 @@
 $blockName:'.mainPage';
 
 #{$blockName} {
+
+    &__isLoading {
+        opacity: 0.8;
+        pointer-events: none;
+    }
+
     &__newsTable {
         border-collapse: collapse;
         width: 100%;

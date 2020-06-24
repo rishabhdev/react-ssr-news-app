@@ -1,16 +1,26 @@
+@import './colors';
+
 html,
 body {
   height: 100%;
   font-size: 10pt;
+  background-color: $background;
 }
 
 body {
   font-family: Verdana, Geneva, sans-serif;
 }
 
+
 .app {
   width: 85%;
   margin: 0 auto;
+}
+
+@media only screen and (max-width: 992px) {
+  .app {
+    width: 100%;
+  }
 }
 
 

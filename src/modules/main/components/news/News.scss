@@ -31,40 +31,43 @@ $blockName: '.newsComponent';
             text-decoration: none;
         }
     }
+
+
     
     &__title  &__rowContent{
         text-align: center;
         display: flex;
     }
     &__titleMain {
+        text-align: left;
+
         a {
             color: black;
         }
-    }
-    &__titleCaption {
-        font-size: 8pt;
-        color: $darkGray;
         span {
+            font-size: 8pt;
             margin: 0 2px;
         }
+        
+    }
+    &__hideButton {
+        cursor: pointer;
+    }
+
+    &__by, &__time {
+        color: $darkGray;
     }
 
     &__host {
         color: $darkGray;
         a {
-            text-decoration: none;
             color: $darkGray;
+            text-decoration: none;
             &:hover {
                 text-decoration: underline;
             }
         }
     }
 
-    &__hideButton {
-        cursor: pointer;
-    }
-
-    &__author, &__hideButton {
-        color: black;
-    }
+   
 }

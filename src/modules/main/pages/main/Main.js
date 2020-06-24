@@ -4,6 +4,7 @@ import { api } from '../../../../api';
 import { useServerData } from '../../../../state/serverDataContext';
 import News from '../../components/news';
 import UpVoteChart from '../../components/upVoteChart';
+import classNames from 'classnames';
 
 import './Main.scss';
 
@@ -44,12 +45,15 @@ const Main = ({ location }) => {
 
     const [renderedPage, setRenderedPages] = useState(serverRenderedPage);
     const [data, setData] = useState(memoized);
+    const [isLoading, setIsLoading] = useState(false);
     const transformedData = updateWithCachedData(data);
     useEffect(() => {
         if (renderedPage !== page) {
+            setIsLoading(true);
             Main.fetchData({page}).then((response) => {
                 setData(response[key]);
                 setRenderedPages(page);
+                setIsLoading(false);
             });
             return;
         }
@@ -67,7 +71,7 @@ const Main = ({ location }) => {
    }
 
     return (
-        <div className={blockName}>
+        <div className={classNames(blockName, {[`${blockName}__isLoading`]: isLoading})}>
             <table className={`${blockName}__newsTable`}>
                 <thead className={`${blockName}__header`}>
                     <tr>

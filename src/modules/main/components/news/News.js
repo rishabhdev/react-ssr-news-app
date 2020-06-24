@@ -53,16 +53,14 @@ const News = ({ newsData, index, onUpVote, onHide }) => {
                         <a href={newsData.url}>
                             {newsData.title}
                         </a>
-                    </div>
-                    <div className={`${blockName}__titleCaption`}>
                         {
                             host && (<span className={`${blockName}__host`}>
-                                        (<a href={host}>{host}</a>)
+                                        (<a href={`http://${host}`}>{host}</a>)
                                 </span>)
                         }
                         
                         <span className={`${blockName}__authorWrapper`}>
-                            <span>by</span>
+                            <span className={`${blockName}__by`}>by</span>
                             <span className={`${blockName}__author`}>
                                 {newsData.author}
                             </span>
