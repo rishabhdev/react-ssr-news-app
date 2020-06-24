@@ -24,3 +24,7 @@
 - src/ contains all the frontend code
 - server contains logic to run an express server, compile the first page and serve the client
 - test are co-located with components and pages inside `__tests__` directory
+
+## Lighthouse score
+![lighthouse](./public/images/lighthouse.png?raw=true "Lighthouse")
+
